@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Search, Heart, Share2, Plus, ArrowRight } from "lucide-react";
-import { motion } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
 import heroRed from "@/assets/hero-red.jpg";
 import BlurText from "@/components/BlurText";
 
@@ -36,6 +36,10 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  const { scrollY } = useScroll();
+  const bgY = useTransform(scrollY, [0, 800], [0, 160]);
+  const bgScale = useTransform(scrollY, [0, 800], [1, 1.08]);
+
   return (
     <main
       className="relative min-h-screen w-full overflow-hidden bg-black text-white"
@@ -46,9 +50,10 @@ function Index() {
         <motion.img
           src={heroRed}
           alt="Background portrait with red-tinted aesthetic"
-          className="h-full w-full object-cover"
-          initial={{ scale: 1.08, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
+          className="h-full w-full object-cover will-change-transform"
+          style={{ y: bgY, scale: bgScale }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 1.6, ease }}
         />
         {/* Vignette / readability overlays */}
