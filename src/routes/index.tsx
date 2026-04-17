@@ -1,7 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Search, Heart, Share2, Plus, ArrowRight } from "lucide-react";
+import { motion } from "motion/react";
 import heroRed from "@/assets/hero-red.jpg";
 import BlurText from "@/components/BlurText";
+
+const ease = [0.22, 1, 0.36, 1] as const;
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -40,20 +43,38 @@ function Index() {
     >
       {/* Background image */}
       <div className="absolute inset-0">
-        <img
+        <motion.img
           src={heroRed}
           alt="Background portrait with red-tinted aesthetic"
           className="h-full w-full object-cover"
+          initial={{ scale: 1.08, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1.6, ease }}
         />
         {/* Vignette / readability overlays */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/30 to-black/60" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/70" />
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/30 to-black/60"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.2, ease }}
+        />
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/70"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.2, ease }}
+        />
       </div>
 
       {/* Content layer */}
       <div className="relative z-10 mx-auto flex min-h-screen max-w-[1400px] flex-col px-8 py-8 md:px-12 md:py-10">
         {/* Top bar */}
-        <header className="flex items-start justify-between">
+        <motion.header
+          className="flex items-start justify-between"
+          initial={{ opacity: 0, y: -12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease, delay: 0.1 }}
+        >
           <div
             className="text-[11px] tracking-[0.3em] text-white/70"
             style={{ fontFamily: "'JetBrains Mono', monospace" }}
@@ -68,18 +89,21 @@ function Index() {
               EST. 2024
             </div>
           </div>
-        </header>
+        </motion.header>
 
         {/* Main hero row */}
         <section className="mt-10 flex flex-1 flex-col justify-between gap-12 md:mt-16 md:flex-row">
           {/* Left column: headline */}
           <div className="max-w-xl">
-            <div
+            <motion.div
               className="text-[11px] tracking-[0.4em] text-[#ff3a3a]"
               style={{ fontFamily: "'JetBrains Mono', monospace" }}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease, delay: 0.25 }}
             >
               Abishai K C//
-            </div>
+            </motion.div>
             <h1
               className="mt-4 text-6xl font-light leading-[0.95] tracking-[0.02em] text-white md:text-8xl"
               style={{ fontFamily: "'Chakra Petch', sans-serif", fontWeight: 300 }}
@@ -112,32 +136,49 @@ function Index() {
             />
 
 
-            <div className="mt-8 flex items-center gap-3">
-              <button
-                aria-label="Search"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/30 text-white/80 transition-colors hover:border-[#ff3a3a] hover:text-[#ff3a3a]"
-              >
-                <Search className="h-4 w-4" />
-              </button>
-              <button
-                aria-label="Save"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/30 text-white/80 transition-colors hover:border-[#ff3a3a] hover:text-[#ff3a3a]"
-              >
-                <Heart className="h-4 w-4" />
-              </button>
-              <button
-                aria-label="Share"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/30 text-white/80 transition-colors hover:border-[#ff3a3a] hover:text-[#ff3a3a]"
-              >
-                <Share2 className="h-4 w-4" />
-              </button>
-            </div>
+            <motion.div
+              className="mt-8 flex items-center gap-3"
+              initial="hidden"
+              animate="show"
+              variants={{
+                hidden: {},
+                show: { transition: { staggerChildren: 0.08, delayChildren: 1.0 } },
+              }}
+            >
+              {[
+                { Icon: Search, label: "Search" },
+                { Icon: Heart, label: "Save" },
+                { Icon: Share2, label: "Share" },
+              ].map(({ Icon, label }) => (
+                <motion.button
+                  key={label}
+                  aria-label={label}
+                  variants={{
+                    hidden: { opacity: 0, y: 8 },
+                    show: { opacity: 1, y: 0, transition: { duration: 0.5, ease } },
+                  }}
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/30 text-white/80 transition-colors hover:border-[#ff3a3a] hover:text-[#ff3a3a]"
+                >
+                  <Icon className="h-4 w-4" />
+                </motion.button>
+              ))}
+            </motion.div>
           </div>
 
           {/* Right column: pagination + tech specs */}
-          <div className="flex w-full max-w-xs flex-col items-end gap-12">
+          <motion.div
+            className="flex w-full max-w-xs flex-col items-end gap-12"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease, delay: 0.4 }}
+          >
             {/* Pagination */}
-            <div className="flex w-full flex-col items-end">
+            <motion.div
+              className="flex w-full flex-col items-end"
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease, delay: 0.55 }}
+            >
               <div
                 className="flex items-baseline gap-2 text-white"
                 style={{ fontFamily: "'Chakra Petch', sans-serif" }}
@@ -145,32 +186,52 @@ function Index() {
                 <span className="text-5xl font-light">01</span>
                 <span className="text-2xl font-light text-white/40"> / SYSTEMS</span>
               </div>
-              <div className="mt-3 h-px w-32 bg-[#ff3a3a]/60" />
+              <motion.div
+                className="mt-3 h-px bg-[#ff3a3a]/60"
+                initial={{ width: 0 }}
+                animate={{ width: "8rem" }}
+                transition={{ duration: 0.8, ease, delay: 0.85 }}
+              />
               <div
                 className="mt-3 text-[11px] tracking-[0.3em] text-white/60"
                 style={{ fontFamily: "'JetBrains Mono', monospace" }}
               >
                 {"\n"}
               </div>
-            </div>
+            </motion.div>
 
             {/* Technical Specs */}
             <div className="w-full">
-              <div
+              <motion.div
                 className="text-[11px] tracking-[0.3em] text-[#ff3a3a]"
                 style={{ fontFamily: "'JetBrains Mono', monospace" }}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease, delay: 0.9 }}
               >
                 TECHNICAL SPECS
-              </div>
-              <div className="mt-4 flex flex-col">
+              </motion.div>
+              <motion.div
+                className="mt-4 flex flex-col"
+                initial="hidden"
+                animate="show"
+                variants={{
+                  hidden: {},
+                  show: { transition: { staggerChildren: 0.12, delayChildren: 1.05 } },
+                }}
+              >
                 {[
                   { label: "FOCUS", value: "Causal AI / Agentic Systems" },
                   { label: "STACK", value: "Python · LLMs · RAG · FastAPI" },
                   { label: "SYSTEMS", value: "End-to-End AI Pipelines" },
                   { label: "DOMAIN", value: "Enterprise AI" },
                 ].map((row, i) => (
-                  <div
+                  <motion.div
                     key={row.label}
+                    variants={{
+                      hidden: { opacity: 0, y: 12 },
+                      show: { opacity: 1, y: 0, transition: { duration: 0.55, ease } },
+                    }}
                     className={`flex items-center justify-between py-3 ${
                       i !== 0 ? "border-t border-[#ff3a3a]/25" : ""
                     }`}
@@ -187,21 +248,24 @@ function Index() {
                     >
                       {row.value}
                     </span>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </section>
 
         {/* Bottom row: product card + tags */}
         <section className="mt-12 flex flex-col items-stretch justify-between gap-6 md:flex-row md:items-end">
           {/* Frosted glass product card */}
-          <div
+          <motion.div
             className="flex w-full max-w-md items-center gap-4 rounded-2xl border border-white/10 p-4 backdrop-blur-xl"
             style={{
               backgroundColor: "rgba(40, 8, 8, 0.45)",
             }}
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease, delay: 1.3 }}
           >
             <div
               className="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl border border-[#ff3a3a]/40"
@@ -234,20 +298,32 @@ function Index() {
             >
               VIEW PROJECT → <ArrowRight className="h-3.5 w-3.5" />
             </button>
-          </div>
+          </motion.div>
 
           {/* Pill tags */}
-          <div className="flex flex-wrap items-center justify-end gap-2">
+          <motion.div
+            className="flex flex-wrap items-center justify-end gap-2"
+            initial="hidden"
+            animate="show"
+            variants={{
+              hidden: {},
+              show: { transition: { staggerChildren: 0.1, delayChildren: 1.5 } },
+            }}
+          >
             {["CAUSAL AI", "LLMs", "RAG Systems", "AGENTIC AI"].map((tag) => (
-              <span
+              <motion.span
                 key={tag}
+                variants={{
+                  hidden: { opacity: 0, y: 10, scale: 0.95 },
+                  show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5, ease } },
+                }}
                 className="rounded-full border border-white/25 bg-black/30 px-4 py-1.5 text-[11px] tracking-[0.25em] text-white/85 backdrop-blur-md"
                 style={{ fontFamily: "'Chakra Petch', sans-serif" }}
               >
                 {tag}
-              </span>
+              </motion.span>
             ))}
-          </div>
+          </motion.div>
         </section>
       </div>
     </main>
