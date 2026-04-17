@@ -331,6 +331,31 @@ function Index() {
           </motion.div>
         </section>
       </div>
+
+      {/* Second blank page — same aesthetic, parallax continues */}
+      <section className="relative z-10 flex min-h-screen w-full items-center justify-center px-8 md:px-12">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.9, ease }}
+          className="text-center"
+        >
+          <div
+            className="text-[11px] tracking-[0.4em] text-[#ff3a3a]"
+            style={{ fontFamily: "'JetBrains Mono', monospace" }}
+          >
+            02 // NEXT
+          </div>
+          <h2
+            className="mt-4 text-5xl font-light tracking-[0.02em] text-white md:text-7xl"
+            style={{ fontFamily: "'Chakra Petch', sans-serif", fontWeight: 300 }}
+          >
+            Coming Soon
+          </h2>
+          <div className="mx-auto mt-6 h-px w-32 bg-[#ff3a3a]/60" />
+        </motion.div>
+      </section>
     </main>
   );
 }
