@@ -1,7 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Search, Heart, Share2, Plus, ArrowRight } from "lucide-react";
+import { motion } from "motion/react";
 import heroRed from "@/assets/hero-red.jpg";
 import BlurText from "@/components/BlurText";
+
+const ease = [0.22, 1, 0.36, 1] as const;
 
 export const Route = createFileRoute("/")({
   head: () => ({
