@@ -258,11 +258,14 @@ function Index() {
         {/* Bottom row: product card + tags */}
         <section className="mt-12 flex flex-col items-stretch justify-between gap-6 md:flex-row md:items-end">
           {/* Frosted glass product card */}
-          <div
+          <motion.div
             className="flex w-full max-w-md items-center gap-4 rounded-2xl border border-white/10 p-4 backdrop-blur-xl"
             style={{
               backgroundColor: "rgba(40, 8, 8, 0.45)",
             }}
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease, delay: 1.3 }}
           >
             <div
               className="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl border border-[#ff3a3a]/40"
@@ -295,20 +298,32 @@ function Index() {
             >
               VIEW PROJECT → <ArrowRight className="h-3.5 w-3.5" />
             </button>
-          </div>
+          </motion.div>
 
           {/* Pill tags */}
-          <div className="flex flex-wrap items-center justify-end gap-2">
+          <motion.div
+            className="flex flex-wrap items-center justify-end gap-2"
+            initial="hidden"
+            animate="show"
+            variants={{
+              hidden: {},
+              show: { transition: { staggerChildren: 0.1, delayChildren: 1.5 } },
+            }}
+          >
             {["CAUSAL AI", "LLMs", "RAG Systems", "AGENTIC AI"].map((tag) => (
-              <span
+              <motion.span
                 key={tag}
+                variants={{
+                  hidden: { opacity: 0, y: 10, scale: 0.95 },
+                  show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5, ease } },
+                }}
                 className="rounded-full border border-white/25 bg-black/30 px-4 py-1.5 text-[11px] tracking-[0.25em] text-white/85 backdrop-blur-md"
                 style={{ fontFamily: "'Chakra Petch', sans-serif" }}
               >
                 {tag}
-              </span>
+              </motion.span>
             ))}
-          </div>
+          </motion.div>
         </section>
       </div>
     </main>
