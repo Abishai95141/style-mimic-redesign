@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Search, Heart, Share2, Plus, ArrowRight } from "lucide-react";
 import heroRed from "@/assets/hero-red.jpg";
+import BlurText from "@/components/BlurText";
 
 export const Route = createFileRoute("/")({
   head: () => ({
