@@ -171,9 +171,14 @@ function Index() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease, delay: 0.4 }}
-          ></motion.div>{/*placeholder*/}
+          >
             {/* Pagination */}
-            <div className="flex w-full flex-col items-end">
+            <motion.div
+              className="flex w-full flex-col items-end"
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease, delay: 0.55 }}
+            >
               <div
                 className="flex items-baseline gap-2 text-white"
                 style={{ fontFamily: "'Chakra Petch', sans-serif" }}
@@ -181,32 +186,52 @@ function Index() {
                 <span className="text-5xl font-light">01</span>
                 <span className="text-2xl font-light text-white/40"> / SYSTEMS</span>
               </div>
-              <div className="mt-3 h-px w-32 bg-[#ff3a3a]/60" />
+              <motion.div
+                className="mt-3 h-px bg-[#ff3a3a]/60"
+                initial={{ width: 0 }}
+                animate={{ width: "8rem" }}
+                transition={{ duration: 0.8, ease, delay: 0.85 }}
+              />
               <div
                 className="mt-3 text-[11px] tracking-[0.3em] text-white/60"
                 style={{ fontFamily: "'JetBrains Mono', monospace" }}
               >
                 {"\n"}
               </div>
-            </div>
+            </motion.div>
 
             {/* Technical Specs */}
             <div className="w-full">
-              <div
+              <motion.div
                 className="text-[11px] tracking-[0.3em] text-[#ff3a3a]"
                 style={{ fontFamily: "'JetBrains Mono', monospace" }}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease, delay: 0.9 }}
               >
                 TECHNICAL SPECS
-              </div>
-              <div className="mt-4 flex flex-col">
+              </motion.div>
+              <motion.div
+                className="mt-4 flex flex-col"
+                initial="hidden"
+                animate="show"
+                variants={{
+                  hidden: {},
+                  show: { transition: { staggerChildren: 0.12, delayChildren: 1.05 } },
+                }}
+              >
                 {[
                   { label: "FOCUS", value: "Causal AI / Agentic Systems" },
                   { label: "STACK", value: "Python · LLMs · RAG · FastAPI" },
                   { label: "SYSTEMS", value: "End-to-End AI Pipelines" },
                   { label: "DOMAIN", value: "Enterprise AI" },
                 ].map((row, i) => (
-                  <div
+                  <motion.div
                     key={row.label}
+                    variants={{
+                      hidden: { opacity: 0, y: 12 },
+                      show: { opacity: 1, y: 0, transition: { duration: 0.55, ease } },
+                    }}
                     className={`flex items-center justify-between py-3 ${
                       i !== 0 ? "border-t border-[#ff3a3a]/25" : ""
                     }`}
@@ -223,11 +248,11 @@ function Index() {
                     >
                       {row.value}
                     </span>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </section>
 
         {/* Bottom row: product card + tags */}
