@@ -69,7 +69,12 @@ function Index() {
       {/* Content layer */}
       <div className="relative z-10 mx-auto flex min-h-screen max-w-[1400px] flex-col px-8 py-8 md:px-12 md:py-10">
         {/* Top bar */}
-        <header className="flex items-start justify-between">
+        <motion.header
+          className="flex items-start justify-between"
+          initial={{ opacity: 0, y: -12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease, delay: 0.1 }}
+        >
           <div
             className="text-[11px] tracking-[0.3em] text-white/70"
             style={{ fontFamily: "'JetBrains Mono', monospace" }}
@@ -84,18 +89,21 @@ function Index() {
               EST. 2024
             </div>
           </div>
-        </header>
+        </motion.header>
 
         {/* Main hero row */}
         <section className="mt-10 flex flex-1 flex-col justify-between gap-12 md:mt-16 md:flex-row">
           {/* Left column: headline */}
           <div className="max-w-xl">
-            <div
+            <motion.div
               className="text-[11px] tracking-[0.4em] text-[#ff3a3a]"
               style={{ fontFamily: "'JetBrains Mono', monospace" }}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease, delay: 0.25 }}
             >
               Abishai K C//
-            </div>
+            </motion.div>
             <h1
               className="mt-4 text-6xl font-light leading-[0.95] tracking-[0.02em] text-white md:text-8xl"
               style={{ fontFamily: "'Chakra Petch', sans-serif", fontWeight: 300 }}
