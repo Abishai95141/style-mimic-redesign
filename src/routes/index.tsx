@@ -136,30 +136,42 @@ function Index() {
             />
 
 
-            <div className="mt-8 flex items-center gap-3">
-              <button
-                aria-label="Search"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/30 text-white/80 transition-colors hover:border-[#ff3a3a] hover:text-[#ff3a3a]"
-              >
-                <Search className="h-4 w-4" />
-              </button>
-              <button
-                aria-label="Save"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/30 text-white/80 transition-colors hover:border-[#ff3a3a] hover:text-[#ff3a3a]"
-              >
-                <Heart className="h-4 w-4" />
-              </button>
-              <button
-                aria-label="Share"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/30 text-white/80 transition-colors hover:border-[#ff3a3a] hover:text-[#ff3a3a]"
-              >
-                <Share2 className="h-4 w-4" />
-              </button>
-            </div>
+            <motion.div
+              className="mt-8 flex items-center gap-3"
+              initial="hidden"
+              animate="show"
+              variants={{
+                hidden: {},
+                show: { transition: { staggerChildren: 0.08, delayChildren: 1.0 } },
+              }}
+            >
+              {[
+                { Icon: Search, label: "Search" },
+                { Icon: Heart, label: "Save" },
+                { Icon: Share2, label: "Share" },
+              ].map(({ Icon, label }) => (
+                <motion.button
+                  key={label}
+                  aria-label={label}
+                  variants={{
+                    hidden: { opacity: 0, y: 8 },
+                    show: { opacity: 1, y: 0, transition: { duration: 0.5, ease } },
+                  }}
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/30 text-white/80 transition-colors hover:border-[#ff3a3a] hover:text-[#ff3a3a]"
+                >
+                  <Icon className="h-4 w-4" />
+                </motion.button>
+              ))}
+            </motion.div>
           </div>
 
           {/* Right column: pagination + tech specs */}
-          <div className="flex w-full max-w-xs flex-col items-end gap-12">
+          <motion.div
+            className="flex w-full max-w-xs flex-col items-end gap-12"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease, delay: 0.4 }}
+          ></motion.div>{/*placeholder*/}
             {/* Pagination */}
             <div className="flex w-full flex-col items-end">
               <div
