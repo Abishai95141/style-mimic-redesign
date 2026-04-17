@@ -37,16 +37,16 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   const { scrollY } = useScroll();
-  const bgY = useTransform(scrollY, [0, 800], [0, 160]);
-  const bgScale = useTransform(scrollY, [0, 800], [1, 1.08]);
+  const bgY = useTransform(scrollY, [0, 1600], [0, 240]);
+  const bgScale = useTransform(scrollY, [0, 1600], [1, 1.12]);
 
   return (
     <main
-      className="relative min-h-screen w-full overflow-hidden bg-black text-white"
+      className="relative w-full bg-black text-white"
       style={{ fontFamily: "'Inter', sans-serif" }}
     >
-      {/* Background image */}
-      <div className="absolute inset-0">
+      {/* Fixed parallax background — spans the entire scroll */}
+      <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
         <motion.img
           src={heroRed}
           alt="Background portrait with red-tinted aesthetic"
