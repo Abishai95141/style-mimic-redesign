@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Search, Heart, Share2, Plus, ArrowRight } from "lucide-react";
-import { motion } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
 import heroRed from "@/assets/hero-red.jpg";
 import BlurText from "@/components/BlurText";
 
