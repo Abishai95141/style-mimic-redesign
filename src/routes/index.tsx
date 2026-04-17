@@ -1,21 +1,21 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Search, Heart, Share2, Plus } from "lucide-react";
+import { Search, Heart, Share2, Plus, ArrowRight } from "lucide-react";
 import heroRed from "@/assets/hero-red.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "LAYER-X // Neural Interface" },
+      { title: "Abishai K C // Decision Intelligence" },
       {
         name: "description",
         content:
-          "LAYER-X Neural Interface — engineered with high-res optics and a zero-gravity frame for next-generation perception.",
+          "Building AI systems that move from theory to impact - combining LLMs, causal inference, and agentic reasoning.",
       },
-      { property: "og:title", content: "LAYER-X // Neural Interface" },
+      { property: "og:title", content: "Abishai K C // Decision Intelligence" },
       {
         property: "og:description",
         content:
-          "Engineered with high-res optics and a zero-gravity frame. Discover the MS-01 Neural Core.",
+          "Building AI systems that move from theory to impact - combining LLMs, causal inference, and agentic reasoning.",
       },
       { property: "og:type", content: "website" },
     ],
@@ -41,7 +41,7 @@ function Index() {
       <div className="absolute inset-0">
         <img
           src={heroRed}
-          alt="LAYER-X Neural Interface portrait — figure with red-tinted optical headgear"
+          alt="Background portrait with red-tinted aesthetic"
           className="h-full w-full object-cover"
         />
         {/* Vignette / readability overlays */}
@@ -57,14 +57,14 @@ function Index() {
             className="text-[11px] tracking-[0.3em] text-white/70"
             style={{ fontFamily: "'JetBrains Mono', monospace" }}
           >
-            LAYER-X<span className="text-[#ff3a3a]"> //</span> NEURAL.SYS
+            Abishai K C<span className="text-[#ff3a3a]"> //</span> AIML
           </div>
           <div className="flex items-center gap-4">
             <div
               className="text-[11px] tracking-[0.3em] text-white/70"
               style={{ fontFamily: "'JetBrains Mono', monospace" }}
             >
-              EST. 2049
+              EST. 2024
             </div>
           </div>
         </header>
@@ -77,32 +77,32 @@ function Index() {
               className="text-[11px] tracking-[0.4em] text-[#ff3a3a]"
               style={{ fontFamily: "'JetBrains Mono', monospace" }}
             >
-              LAYER-X //
+              Abishai K C//
             </div>
             <h1
               className="mt-4 text-6xl font-light leading-[0.95] tracking-[0.02em] text-white md:text-8xl"
               style={{ fontFamily: "'Chakra Petch', sans-serif", fontWeight: 300 }}
             >
-              NEURAL
+              Decision
               <br />
-              INTERFACE
+              Intelligence
             </h1>
 
             <p className="mt-8 max-w-md text-sm leading-relaxed text-white/70">
-              Engineered with high-res optics and a zero-gravity frame, the LAYER-X
-              series redefines perception. Built for operators who move between
-              signal and shadow.
+              Building AI systems that move from theory to impact -
+              <br />
+              combining LLMs, causal inference, and agentic reasoning.
             </p>
 
             <div className="mt-8 flex items-center gap-3">
               <button
-                aria-label="Search catalog"
+                aria-label="Search"
                 className="flex h-10 w-10 items-center justify-center rounded-full border border-white/30 text-white/80 transition-colors hover:border-[#ff3a3a] hover:text-[#ff3a3a]"
               >
                 <Search className="h-4 w-4" />
               </button>
               <button
-                aria-label="Save to wishlist"
+                aria-label="Save"
                 className="flex h-10 w-10 items-center justify-center rounded-full border border-white/30 text-white/80 transition-colors hover:border-[#ff3a3a] hover:text-[#ff3a3a]"
               >
                 <Heart className="h-4 w-4" />
@@ -124,15 +124,15 @@ function Index() {
                 className="flex items-baseline gap-2 text-white"
                 style={{ fontFamily: "'Chakra Petch', sans-serif" }}
               >
-                <span className="text-5xl font-light">1</span>
-                <span className="text-2xl font-light text-white/40">/26</span>
+                <span className="text-5xl font-light">01</span>
+                <span className="text-2xl font-light text-white/40"> / SYSTEMS</span>
               </div>
               <div className="mt-3 h-px w-32 bg-[#ff3a3a]/60" />
               <div
                 className="mt-3 text-[11px] tracking-[0.3em] text-white/60"
                 style={{ fontFamily: "'JetBrains Mono', monospace" }}
               >
-                NEXT PRODUCT →
+                {"\n"}
               </div>
             </div>
 
@@ -146,10 +146,10 @@ function Index() {
               </div>
               <div className="mt-4 flex flex-col">
                 {[
-                  { label: "OPTICS", value: "8K / 240Hz" },
-                  { label: "LOGIC", value: "Q-CORE v3" },
-                  { label: "MOTION", value: "0.2ms LAT" },
-                  { label: "BUILD", value: "TI-MESH" },
+                  { label: "FOCUS", value: "Causal AI / Agentic Systems" },
+                  { label: "STACK", value: "Python · LLMs · RAG · FastAPI" },
+                  { label: "SYSTEMS", value: "End-to-End AI Pipelines" },
+                  { label: "DOMAIN", value: "Enterprise AI" },
                 ].map((row, i) => (
                   <div
                     key={row.label}
@@ -198,30 +198,29 @@ function Index() {
                 className="text-[10px] tracking-[0.3em] text-[#ff3a3a]"
                 style={{ fontFamily: "'JetBrains Mono', monospace" }}
               >
-                MS-01
+                PROJECT
               </div>
               <div
                 className="mt-0.5 text-base text-white"
                 style={{ fontFamily: "'Chakra Petch', sans-serif" }}
               >
-                NEURAL CORE
+                CAUSEWAY
               </div>
               <div className="mt-1 text-xs text-white/60">
-                Cortex-linked vision module · single unit
+                Agentic decision system for causal world modeling
               </div>
             </div>
             <button
               className="flex items-center gap-2 rounded-full bg-[#ff3a3a] px-4 py-2 text-xs font-medium tracking-wider text-white transition-colors hover:bg-[#ff5555]"
               style={{ fontFamily: "'Chakra Petch', sans-serif" }}
             >
-              <Plus className="h-3.5 w-3.5" />
-              ADD TO CART
+              VIEW PROJECT → <ArrowRight className="h-3.5 w-3.5" />
             </button>
           </div>
 
           {/* Pill tags */}
           <div className="flex flex-wrap items-center justify-end gap-2">
-            {["8K RAW", "A+", "ULTRA-WIDE", "NEURAL-SYNC"].map((tag) => (
+            {["CAUSAL AI", "LLMs", "RAG Systems", "AGENTIC AI"].map((tag) => (
               <span
                 key={tag}
                 className="rounded-full border border-white/25 bg-black/30 px-4 py-1.5 text-[11px] tracking-[0.25em] text-white/85 backdrop-blur-md"
