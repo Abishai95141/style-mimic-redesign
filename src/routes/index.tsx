@@ -84,16 +84,33 @@ function Index() {
               className="mt-4 text-6xl font-light leading-[0.95] tracking-[0.02em] text-white md:text-8xl"
               style={{ fontFamily: "'Chakra Petch', sans-serif", fontWeight: 300 }}
             >
-              Decision
-              <br />
-              Intelligence
+              <BlurText
+                text="Decision"
+                animateBy="letters"
+                direction="top"
+                delay={60}
+                stepDuration={0.4}
+                className="block"
+              />
+              <BlurText
+                text="Intelligence"
+                animateBy="letters"
+                direction="top"
+                delay={60}
+                stepDuration={0.4}
+                className="block"
+              />
             </h1>
 
-            <p className="mt-8 max-w-md text-sm leading-relaxed text-white/70">
-              Building AI systems that move from theory to impact -
-              <br />
-              combining LLMs, causal inference, and agentic reasoning.
-            </p>
+            <BlurText
+              text="Building AI systems that move from theory to impact - combining LLMs, causal inference, and agentic reasoning."
+              animateBy="words"
+              direction="bottom"
+              delay={40}
+              stepDuration={0.35}
+              className="mt-8 max-w-md text-sm leading-relaxed text-white/70"
+            />
+
 
             <div className="mt-8 flex items-center gap-3">
               <button
