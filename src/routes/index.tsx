@@ -43,14 +43,27 @@ function Index() {
     >
       {/* Background image */}
       <div className="absolute inset-0">
-        <img
+        <motion.img
           src={heroRed}
           alt="Background portrait with red-tinted aesthetic"
           className="h-full w-full object-cover"
+          initial={{ scale: 1.08, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1.6, ease }}
         />
         {/* Vignette / readability overlays */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/30 to-black/60" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/70" />
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/30 to-black/60"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.2, ease }}
+        />
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/70"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.2, ease }}
+        />
       </div>
 
       {/* Content layer */}
