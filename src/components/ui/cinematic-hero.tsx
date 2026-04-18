@@ -219,24 +219,25 @@ export function CinematicHero({
       const introTl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
-          start: "top 80%",
-          toggleActions: "play none none reverse",
+          start: "top bottom",
+          end: "top 20%",
+          scrub: 1,
         },
       });
       introTl
         .to(".text-track", {
-          duration: 1.6,
           autoAlpha: 1,
           y: 0,
           scale: 1,
           filter: "blur(0px)",
           rotationX: 0,
-          ease: "expo.out",
+          ease: "power2.out",
+          duration: 1.5,
         })
         .to(
           ".text-days",
-          { duration: 1.2, clipPath: "inset(0 0% 0 0)", ease: "power4.inOut" },
-          "-=1.0",
+          { clipPath: "inset(0 0% 0 0)", ease: "power2.inOut", duration: 1 },
+          "-=0.6",
         );
 
       const scrollTl = gsap.timeline({
