@@ -219,24 +219,25 @@ export function CinematicHero({
       const introTl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
-          start: "top 80%",
-          toggleActions: "play none none reverse",
+          start: "top bottom",
+          end: "top 20%",
+          scrub: 1,
         },
       });
       introTl
         .to(".text-track", {
-          duration: 1.6,
           autoAlpha: 1,
           y: 0,
           scale: 1,
           filter: "blur(0px)",
           rotationX: 0,
-          ease: "expo.out",
+          ease: "power2.out",
+          duration: 1.5,
         })
         .to(
           ".text-days",
-          { duration: 1.2, clipPath: "inset(0 0% 0 0)", ease: "power4.inOut" },
-          "-=1.0",
+          { clipPath: "inset(0 0% 0 0)", ease: "power2.inOut", duration: 1 },
+          "-=0.6",
         );
 
       const scrollTl = gsap.timeline({
@@ -318,12 +319,11 @@ export function CinematicHero({
       {/* Initial hero text */}
       <div className="hero-text-wrapper absolute inset-0 z-10 flex items-center justify-center px-6">
         <h2
-          className="text-track text-silver-matte max-w-5xl text-center text-4xl font-light leading-[1.05] tracking-[0.01em] md:text-7xl"
+          className="text-track text-silver-matte max-w-5xl text-balance text-center text-3xl font-light leading-[1.15] tracking-[0.01em] sm:text-4xl md:text-6xl lg:text-7xl"
           style={{ fontFamily: "'Chakra Petch', sans-serif", fontWeight: 300 }}
         >
-          {tagline1}
-          <br />
-          <span className="text-days">{tagline2}</span>
+          <span className="block">{tagline1}</span>
+          <span className="text-days mt-1 inline-block w-full">{tagline2}</span>
         </h2>
       </div>
 
