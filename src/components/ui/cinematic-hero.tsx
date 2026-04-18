@@ -243,7 +243,7 @@ export function CinematicHero({
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top top",
-          end: "+=6000",
+          end: isMobile ? "+=2800" : "+=3600",
           pin: true,
           scrub: 1,
           anticipatePin: 1,
@@ -266,35 +266,35 @@ export function CinematicHero({
         })
         .fromTo(
           ".mockup-scroll-wrapper",
-          { y: 300, z: -500, rotationX: 50, rotationY: -30, autoAlpha: 0, scale: 0.6 },
-          { y: 0, z: 0, rotationX: 0, rotationY: 0, autoAlpha: 1, scale: 1, ease: "expo.out", duration: 2.5 },
-          "-=0.8",
+          { y: 200, z: -400, rotationX: 40, rotationY: -20, autoAlpha: 0, scale: 0.7 },
+          { y: 0, z: 0, rotationX: 0, rotationY: 0, autoAlpha: 1, scale: 1, ease: "expo.out", duration: 2 },
+          "-=0.6",
         )
         .fromTo(
           ".phone-widget",
-          { y: 40, autoAlpha: 0, scale: 0.95 },
-          { y: 0, autoAlpha: 1, scale: 1, stagger: 0.15, ease: "back.out(1.2)", duration: 1.5 },
-          "-=1.5",
+          { y: 30, autoAlpha: 0, scale: 0.95 },
+          { y: 0, autoAlpha: 1, scale: 1, stagger: 0.1, ease: "back.out(1.2)", duration: 1.2 },
+          "-=1.2",
         )
         .fromTo(
           ".floating-badge",
-          { y: 100, autoAlpha: 0, scale: 0.7, rotationZ: -10 },
-          { y: 0, autoAlpha: 1, scale: 1, rotationZ: 0, ease: "back.out(1.5)", duration: 1.5 },
-          "-=2.0",
+          { y: 80, autoAlpha: 0, scale: 0.7, rotationZ: -10 },
+          { y: 0, autoAlpha: 1, scale: 1, rotationZ: 0, ease: "back.out(1.5)", duration: 1.2 },
+          "-=1.6",
         )
         .fromTo(
           ".card-left-text",
           { x: -50, autoAlpha: 0 },
-          { x: 0, autoAlpha: 1, ease: "power4.out", duration: 1.5 },
-          "-=1.5",
+          { x: 0, autoAlpha: 1, ease: "power4.out", duration: 1.2 },
+          "-=1.2",
         )
         .fromTo(
           ".card-right-text",
           { x: 50, autoAlpha: 0, scale: 0.9 },
-          { x: 0, autoAlpha: 1, scale: 1, ease: "expo.out", duration: 1.5 },
+          { x: 0, autoAlpha: 1, scale: 1, ease: "expo.out", duration: 1.2 },
           "<",
         )
-        .to({}, { duration: 3 });
+        .to({}, { duration: 1.5 });
     }, containerRef);
 
     return () => ctx.revert();
