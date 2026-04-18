@@ -304,7 +304,7 @@ export function CinematicHero({
     <div
       ref={containerRef}
       className={cn(
-        "cinematic-scope relative w-full overflow-hidden bg-black text-white",
+        "cinematic-scope relative h-screen w-full overflow-hidden bg-black text-white",
         className,
       )}
       style={{ fontFamily: "'Inter', sans-serif" }}
