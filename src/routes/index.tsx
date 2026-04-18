@@ -73,7 +73,7 @@ function Index() {
       </div>
 
       {/* Content layer */}
-      <div className="relative z-10 mx-auto flex min-h-screen max-w-[1400px] flex-col px-8 py-8 md:px-12 md:py-10">
+      <div className="relative z-10 mx-auto flex h-screen max-h-[100svh] min-h-[640px] max-w-[1400px] flex-col px-8 py-8 md:px-12 md:py-10">
         {/* Top bar */}
         <motion.header
           className="flex items-start justify-between"
