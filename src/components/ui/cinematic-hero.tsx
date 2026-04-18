@@ -318,12 +318,11 @@ export function CinematicHero({
       {/* Initial hero text */}
       <div className="hero-text-wrapper absolute inset-0 z-10 flex items-center justify-center px-6">
         <h2
-          className="text-track text-silver-matte max-w-5xl text-center text-4xl font-light leading-[1.05] tracking-[0.01em] md:text-7xl"
+          className="text-track text-silver-matte max-w-5xl text-balance text-center text-3xl font-light leading-[1.15] tracking-[0.01em] sm:text-4xl md:text-6xl lg:text-7xl"
           style={{ fontFamily: "'Chakra Petch', sans-serif", fontWeight: 300 }}
         >
-          {tagline1}
-          <br />
-          <span className="text-days">{tagline2}</span>
+          <span className="block">{tagline1}</span>
+          <span className="text-days mt-1 inline-block w-full">{tagline2}</span>
         </h2>
       </div>
 
