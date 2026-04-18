@@ -98,7 +98,7 @@ function Index() {
         </motion.header>
 
         {/* Main hero row */}
-        <section className="mt-10 flex flex-1 flex-col justify-between gap-12 md:mt-16 md:flex-row">
+        <section className="mt-8 flex flex-1 flex-col gap-10 md:mt-12 md:flex-row md:justify-between">
           {/* Left column: headline */}
           <div className="max-w-xl">
             <motion.div
