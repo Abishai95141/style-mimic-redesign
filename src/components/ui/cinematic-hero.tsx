@@ -332,15 +332,15 @@ export function CinematicHero({
         ref={mainCardRef}
         className="main-card premium-depth-card absolute left-1/2 top-1/2 z-20 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center overflow-hidden"
         style={{
-          width: "70vw",
-          height: "60vh",
+          width: "min(90vw, 1100px)",
+          height: "min(70vh, 640px)",
           borderRadius: "32px",
           willChange: "transform,width,height",
         }}
       >
         <div className="card-sheen" />
 
-        <div className="relative z-10 mx-auto grid h-full w-full max-w-[1400px] grid-cols-1 items-center gap-8 px-6 py-20 md:grid-cols-12 md:px-12">
+        <div className="relative z-10 mx-auto grid h-full w-full max-w-[1400px] grid-cols-1 items-center gap-6 overflow-y-auto px-5 py-10 md:grid-cols-12 md:gap-8 md:overflow-visible md:px-12 md:py-16">
           {/* Left text column */}
           <div className="card-left-text col-span-1 md:col-span-4">
             <h3
