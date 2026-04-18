@@ -243,7 +243,7 @@ export function CinematicHero({
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top top",
-          end: "+=6000",
+          end: isMobile ? "+=2800" : "+=3600",
           pin: true,
           scrub: 1,
           anticipatePin: 1,
@@ -266,35 +266,35 @@ export function CinematicHero({
         })
         .fromTo(
           ".mockup-scroll-wrapper",
-          { y: 300, z: -500, rotationX: 50, rotationY: -30, autoAlpha: 0, scale: 0.6 },
-          { y: 0, z: 0, rotationX: 0, rotationY: 0, autoAlpha: 1, scale: 1, ease: "expo.out", duration: 2.5 },
-          "-=0.8",
+          { y: 200, z: -400, rotationX: 40, rotationY: -20, autoAlpha: 0, scale: 0.7 },
+          { y: 0, z: 0, rotationX: 0, rotationY: 0, autoAlpha: 1, scale: 1, ease: "expo.out", duration: 2 },
+          "-=0.6",
         )
         .fromTo(
           ".phone-widget",
-          { y: 40, autoAlpha: 0, scale: 0.95 },
-          { y: 0, autoAlpha: 1, scale: 1, stagger: 0.15, ease: "back.out(1.2)", duration: 1.5 },
-          "-=1.5",
+          { y: 30, autoAlpha: 0, scale: 0.95 },
+          { y: 0, autoAlpha: 1, scale: 1, stagger: 0.1, ease: "back.out(1.2)", duration: 1.2 },
+          "-=1.2",
         )
         .fromTo(
           ".floating-badge",
-          { y: 100, autoAlpha: 0, scale: 0.7, rotationZ: -10 },
-          { y: 0, autoAlpha: 1, scale: 1, rotationZ: 0, ease: "back.out(1.5)", duration: 1.5 },
-          "-=2.0",
+          { y: 80, autoAlpha: 0, scale: 0.7, rotationZ: -10 },
+          { y: 0, autoAlpha: 1, scale: 1, rotationZ: 0, ease: "back.out(1.5)", duration: 1.2 },
+          "-=1.6",
         )
         .fromTo(
           ".card-left-text",
           { x: -50, autoAlpha: 0 },
-          { x: 0, autoAlpha: 1, ease: "power4.out", duration: 1.5 },
-          "-=1.5",
+          { x: 0, autoAlpha: 1, ease: "power4.out", duration: 1.2 },
+          "-=1.2",
         )
         .fromTo(
           ".card-right-text",
           { x: 50, autoAlpha: 0, scale: 0.9 },
-          { x: 0, autoAlpha: 1, scale: 1, ease: "expo.out", duration: 1.5 },
+          { x: 0, autoAlpha: 1, scale: 1, ease: "expo.out", duration: 1.2 },
           "<",
         )
-        .to({}, { duration: 3 });
+        .to({}, { duration: 1.5 });
     }, containerRef);
 
     return () => ctx.revert();
@@ -304,7 +304,7 @@ export function CinematicHero({
     <div
       ref={containerRef}
       className={cn(
-        "cinematic-scope relative w-full overflow-hidden bg-black text-white",
+        "cinematic-scope relative h-screen w-full overflow-hidden bg-black text-white",
         className,
       )}
       style={{ fontFamily: "'Inter', sans-serif" }}
@@ -332,15 +332,15 @@ export function CinematicHero({
         ref={mainCardRef}
         className="main-card premium-depth-card absolute left-1/2 top-1/2 z-20 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center overflow-hidden"
         style={{
-          width: "70vw",
-          height: "60vh",
+          width: "min(90vw, 1100px)",
+          height: "min(70vh, 640px)",
           borderRadius: "32px",
           willChange: "transform,width,height",
         }}
       >
         <div className="card-sheen" />
 
-        <div className="relative z-10 mx-auto grid h-full w-full max-w-[1400px] grid-cols-1 items-center gap-8 px-6 py-20 md:grid-cols-12 md:px-12">
+        <div className="relative z-10 mx-auto grid h-full w-full max-w-[1400px] grid-cols-1 items-center gap-6 overflow-y-auto px-5 py-10 md:grid-cols-12 md:gap-8 md:overflow-visible md:px-12 md:py-16">
           {/* Left text column */}
           <div className="card-left-text col-span-1 md:col-span-4">
             <h3
@@ -361,8 +361,8 @@ export function CinematicHero({
           <div className="col-span-1 flex justify-center md:col-span-4" style={{ perspective: "1500px" }}>
             <div
               ref={mockupRef}
-              className="mockup-scroll-wrapper relative"
-              style={{ transformStyle: "preserve-3d" }}
+              className="mockup-scroll-wrapper relative scale-[0.65] sm:scale-75 md:scale-100"
+              style={{ transformStyle: "preserve-3d", transformOrigin: "center top" }}
             >
               <div
                 className="iphone-bezel relative overflow-hidden"

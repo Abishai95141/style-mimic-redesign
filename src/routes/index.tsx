@@ -73,7 +73,7 @@ function Index() {
       </div>
 
       {/* Content layer */}
-      <div className="relative z-10 mx-auto flex min-h-screen max-w-[1400px] flex-col px-8 py-8 md:px-12 md:py-10">
+      <div className="relative z-10 mx-auto flex h-screen max-h-[100svh] min-h-[640px] max-w-[1400px] flex-col px-8 py-8 md:px-12 md:py-10">
         {/* Top bar */}
         <motion.header
           className="flex items-start justify-between"
@@ -98,7 +98,7 @@ function Index() {
         </motion.header>
 
         {/* Main hero row */}
-        <section className="mt-10 flex flex-1 flex-col justify-between gap-12 md:mt-16 md:flex-row">
+        <section className="mt-8 flex flex-1 flex-col gap-10 md:mt-12 md:flex-row md:justify-between">
           {/* Left column: headline */}
           <div className="max-w-xl">
             <motion.div
@@ -262,7 +262,7 @@ function Index() {
         </section>
 
         {/* Bottom row: product card + tags */}
-        <section className="mt-12 flex flex-col items-stretch justify-between gap-6 md:flex-row md:items-end">
+        <section className="mt-8 flex flex-col items-stretch justify-between gap-6 md:mt-10 md:flex-row md:items-end">
           {/* Frosted glass product card */}
           <motion.div
             className="flex w-full max-w-md items-center gap-4 rounded-2xl border border-white/10 p-4 backdrop-blur-xl"
