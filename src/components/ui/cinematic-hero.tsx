@@ -361,8 +361,8 @@ export function CinematicHero({
           <div className="col-span-1 flex justify-center md:col-span-4" style={{ perspective: "1500px" }}>
             <div
               ref={mockupRef}
-              className="mockup-scroll-wrapper relative"
-              style={{ transformStyle: "preserve-3d" }}
+              className="mockup-scroll-wrapper relative scale-[0.65] sm:scale-75 md:scale-100"
+              style={{ transformStyle: "preserve-3d", transformOrigin: "center top" }}
             >
               <div
                 className="iphone-bezel relative overflow-hidden"
