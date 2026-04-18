@@ -262,7 +262,7 @@ function Index() {
         </section>
 
         {/* Bottom row: product card + tags */}
-        <section className="mt-12 flex flex-col items-stretch justify-between gap-6 md:flex-row md:items-end">
+        <section className="mt-8 flex flex-col items-stretch justify-between gap-6 md:mt-10 md:flex-row md:items-end">
           {/* Frosted glass product card */}
           <motion.div
             className="flex w-full max-w-md items-center gap-4 rounded-2xl border border-white/10 p-4 backdrop-blur-xl"
